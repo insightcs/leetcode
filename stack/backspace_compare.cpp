@@ -42,25 +42,23 @@ class Solution
 public:
     bool backspaceCompare(string S, string T)
     {
-        S = helper(S);
-        T = helper(T);
-        return S.compare(T) == 0 ? true : false;
+        helper(S);
+        helper(T);
+        return (S == T);
     }
 
-    string helper(string &str)
+    void helper(string &str)
     {
-        string res;
-        for(auto it:str)
+        for(auto it=str.begin();it!=str.end();it++)
         {
-            if(it!='#')
+            if(*it == "#")
             {
-                res.push_back(it);
-            }
-            else if(!res.empty())
-            {
-                res.pop_back();
+                str.erase(it);
+                if (it != str.begin())
+                {
+                    str.erase(it - 1);
+                }
             }
         }
-        return res;
     }
 };
