@@ -16,22 +16,37 @@ typedef struct TreeNode
 class Solution
 {
 public:
-    TreeNode* trimBST(TreeNode* root, int L, int R)
+    TreeNode *trimBST(TreeNode *root, int L, int R)
     {
-        if(!root)
+        if (!root)
         {
             return nullptr;
         }
         root->left = trimBST(root->left, L, R);
         root->right = trimBST(root->right, L, R);
-        if(root->val<L)
+        if (root->val < L)
         {
-            return root->right;
+            TreeNode* temp = root->right;
+            //delete_tree(root->left);
+            //delete root;
+            return temp;
         }
-        if(root->val>R)
+        if (root->val > R)
         {
-            return root->left;
+            TreeNode* temp = root->left;
+            //delete_tree(root->right);
+            //delete root;
+            return temp;
         }
         return root;
+    }
+
+private:
+    void delete_tree(TreeNode *root)
+    {
+        if(!root)   return;
+        delete_tree(root->left);
+        delete_tree(root->right);
+        delete root;
     }
 };
