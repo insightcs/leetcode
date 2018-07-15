@@ -4,7 +4,11 @@
 #include <string>
 using namespace std;
 
-class Solution
+
+/* DFS
+ * time: O(N*M)
+ * memory: O(N^2) */
+/*class Solution
 {
 public:
     vector<double> calEquation(vector<pair<string, string>> equations, vector<double>& values, vector<pair<string, string>> queries)
@@ -70,6 +74,60 @@ private:
             }
         }
         return false;
+    }
+};*/
+
+/* Union-Find
+ * time: O(N*M)
+ * memory: O(N^2) */
+class Solution
+{
+public:
+    vector<double> calEquation(vector<pair<string, string>> equations, vector<double>& values, vector<pair<string, string>> queries)
+    {
+        vector<double> res;
+        for(int i=0;i<equations.size();i++)
+        {
+            auto it = equations[i];
+            graph[it.first][it.second] = values[i];
+            graph[it.second][it.first] = 1.0/values[i];
+            merge(it.first,it.second);
+        }
+
+        for(auto it:queries)
+        {
+            if(graph.count(it.first)==0 || graph.count(it.second)==0 || graph[it.first].count(it.second)==0 || graph[it.second].count(it.first)==0)
+            {
+                res.push_back(-1.0);
+            }
+            else
+            {
+                res.push_back(graph[it.first][it.second]);
+            }
+        }
+        return res;
+    }
+
+private:
+    map<string, map<string, double>> graph;
+    double merge(string u, string v)
+    {
+        if(u==v)
+        {
+            return 1.0;
+        }
+        for(auto it:graph[v])
+        {
+            if(it.first==v)
+                continue;
+            graph[u][it.first] = merge(u, it.first);
+            graph[it.first][u] = 1.0 / graph[u][it.first];
+        }
+        for(auto it:graph[u])
+        {
+            graph[v][it.first] = graph[v][u] * it.second;
+            graph[it.first][v] = 1.0 / graph[v][it.first];
+        }
     }
 };
 
