@@ -2,7 +2,9 @@
 #include <vector>
 using namespace std;
 
-
+/* Ordinary
+ * time: O(N)
+ * memory: O(1) */
 class Solution
 {
 public:
@@ -20,6 +22,9 @@ public:
     }
 };
 
+/* Dynamic Programming
+ * time: O(N)
+ * memory: O(N)*/
 class Solution
 {
 public:
