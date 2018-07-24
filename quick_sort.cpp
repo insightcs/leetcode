@@ -82,8 +82,6 @@ void quick_sort2(int *array, int low, int high)
     }
 }
 
-
-
 void quick_sort3(int *array, int low, int high)
 {
     if(high-low>MAX_LENGTH_INSERT_SORT)
