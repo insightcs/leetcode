@@ -67,8 +67,8 @@ void quick_sort1(int *array, int low, int high)
     if(low<high)
     {
         int pivot = partition1(array, low, high);
-        quick_sort(array, low, pivot-1);
-        quick_sort(array, pivot+1, high);
+        quick_sort1(array, low, pivot-1);
+        quick_sort1(array, pivot+1, high);
     }
 }
 
@@ -77,7 +77,7 @@ void quick_sort2(int *array, int low, int high)
     while(low<high)
     {
         int pivot = partition2(array, low, high);
-        quick_sort(array, low, pivot-1);
+        quick_sort2(array, low, pivot-1);
         low = pivot + 1;    // 尾递归
     }
 }
@@ -89,7 +89,7 @@ void quick_sort3(int *array, int low, int high)
         while(low<high)
         {
             int pivot = partition2(array, low, high);
-            quick_sort1(array, low, pivot-1);
+            quick_sort3(array, low, pivot-1);
             low = pivot + 1;
         }
     }

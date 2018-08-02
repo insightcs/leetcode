@@ -80,8 +80,8 @@ public:
         ListNode *p_headB = headB;
         while(p_headA != p_headB)
         {
-            p_headA ? p_headA->next : headB;
-            p_headB ? p_headB->next : headA;
+            p_headA = (p_headA ? p_headA->next : headB);
+            p_headB = (p_headB ? p_headB->next : headA);
         }
         return p_headA;
     }

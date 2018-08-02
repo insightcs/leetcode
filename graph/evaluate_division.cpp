@@ -107,7 +107,6 @@ public:
         }
         return res;
     }
-
 private:
     map<string, map<string, double>> graph;
     double merge(string u, string v)

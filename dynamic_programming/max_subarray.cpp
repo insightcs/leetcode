@@ -8,18 +8,18 @@ using namespace std;
 class Solution
 {
 public:
-    int maxSubArray(vector<int>& nums)
+int maxSubArray(vector<int>& nums)
+{
+    if(nums.size()==0)  return 0;
+    int sum = 0;
+    int max_sum = INT_MIN;
+    for(auto it:nums)
     {
-        if(nums.size()==0)  return 0;
-        int sum = 0;
-        int max_sum = INT_MIN;
-        for(auto it:nums)
-        {
-            sum = max(sum+it,it);
-            max_sum = max(sum, max_sum);
-        }
-        return max_sum;
+        sum = max(sum+it,it);
+        max_sum = max(sum, max_sum);
     }
+    return max_sum;
+}
 };
 
 /* Dynamic Programming
@@ -33,12 +33,30 @@ public:
         int n = nums.size();
         if(n==0)  return 0;
         int max_sum = INT_MIN;
+        int start = 0, end = 0;
+        vector<int> sub_array;
         int f[n];
         f[0] = nums[0];
         for(int i=1;i<n;i++)
         {
-            f[i] = max(f[i-1], 0) + nums[i];
-            max_sum = max(f[i], max_sum);
+            if(f[i-1]<0)
+            {
+                f[i] = nums[i];
+                start = i;
+            }
+            else
+            {
+                f[i] = f[i-1] + nums[i];
+            }
+            if(max_sum<f[i])
+            {
+                max_sum = f[i];
+                end = i;
+            }
+        }
+        for(int i=start;i<=end;i++)
+        {
+            sub_array.push_back(nums[i]);
         }
         return max_sum;
     }
