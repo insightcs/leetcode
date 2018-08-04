@@ -12,9 +12,11 @@ typedef struct TreeNode
 }TreeNode;
 
 
-/* DFS + set
+/**
+ * DFS + set
  * time: O(N)
- * memory: O(N) */
+ * memory: O(N)
+ * */
 class Solution
 {
 public:
@@ -40,9 +42,11 @@ private:
     }
 };
 
-/* BFS + set
+/**
+ * BFS + set
  * time: O(N)
- * memory: O(N) */
+ * memory: O(N)
+ * */
 class Solution
 {
 public:
@@ -74,9 +78,11 @@ public:
     }
 };
 
-/* BST
+/**
+ * BST
  * time: O(NH)
- * memory: O(H) */
+ * memory: O(H)
+ */
 class Solution
 {
 public:
@@ -112,9 +118,10 @@ private:
     }
 };
 
-/* BST
+/** BST
  * time: O(N)
- * memory: O(n) */
+ * memory: O(n)
+ */
 class Solution
 {
 public:

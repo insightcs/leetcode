@@ -17,9 +17,11 @@ typedef struct TreeNode
     }
 }TreeNode;
 
-/* 深度优先搜索(DFS)
+/**
+ * 深度优先搜索(DFS)
  * time: O(n)
- * memory: O(h) */
+ * memory: O(h)
+ */
 class Solution
 {
 public:
@@ -53,16 +55,17 @@ public:
     }
 };
 
-/* 广度优先搜索（BFS）
+/**
+ * 广度优先搜索（BFS）
  * time: O(n)
- * memory: O(m) */
+ * memory: O(m)
+ */
 class Solution
 {
 public:
     vector<double> averageOfLevels(TreeNode* root)
     {
         vector<double> res;
-
         if(!root)   return res;
         queue<TreeNode*> q;
         q.push(root);

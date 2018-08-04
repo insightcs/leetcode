@@ -15,9 +15,11 @@ typedef struct TreeNode
     }
 }TreeNode;
 
-/* recursive
+/**
+ * recursive
  * time: O(N)
- * memory: O(H)*/
+ * memory: O(H)
+ */
 class Solution
 {
 public:
@@ -31,9 +33,11 @@ public:
     }
 };
 
-/* iterative
+/**
+ * iterative
  * time: O(N)
- * memory: O(N)*/
+ * memory: O(N)
+ */
 class Solution
 {
 public:

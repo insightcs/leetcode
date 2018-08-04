@@ -11,7 +11,11 @@ typedef struct ListNode
     }
 }ListNode;
 
-/*******iterative*********/
+/**
+ * 直接插入排序
+ * time: O(N)
+ * space: O(1)
+ * */
 class Solution
 {
 public:
@@ -34,7 +38,10 @@ public:
     }
 };
 
-/*******iterative*********/
+/**
+ * time: O(N)
+ * space: O(1)
+ * */
 class Solution
 {
 public:

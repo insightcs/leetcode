@@ -2,9 +2,11 @@
 #include <vector>
 using namespace std;
 
-/* Ordinary
+/**
+ * Ordinary
  * time: O(N)
- * memory: O(1) */
+ * memory: O(1)
+ */
 class Solution
 {
 public:
@@ -22,9 +24,11 @@ int maxSubArray(vector<int>& nums)
 }
 };
 
-/* Dynamic Programming
+/**
+ * Dynamic Programming
  * time: O(N)
- * memory: O(N)*/
+ * memory: O(N)
+ */
 class Solution
 {
 public:
@@ -34,24 +38,26 @@ public:
         if(n==0)  return 0;
         int max_sum = INT_MIN;
         int start = 0, end = 0;
+        int temp = 0;
         vector<int> sub_array;
-        int f[n];
-        f[0] = nums[0];
+        int f[n+1] = {0};
+        f[0] = 0;
         for(int i=1;i<n;i++)
         {
-            if(f[i-1]<0)
+            if(f[i]<0)
             {
-                f[i] = nums[i];
-                start = i;
+                f[i] = nums[i-1];
+                temp = i - 1;
             }
             else
             {
-                f[i] = f[i-1] + nums[i];
+                f[i] = f[i-1] + nums[i-1];
             }
             if(max_sum<f[i])
             {
                 max_sum = f[i];
-                end = i;
+                start = temp;
+                end = i-1;
             }
         }
         for(int i=start;i<=end;i++)

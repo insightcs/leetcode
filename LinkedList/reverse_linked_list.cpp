@@ -37,26 +37,32 @@ public:
     }
 };
 
-/********iterative:头插法**********/
-class Solution
-{
-public:
-    ListNode* reverseList(ListNode* head)
-    {
-        ListNode *dummy = nullptr;
-        ListNode *temp = nullptr;
-        while(head!= nullptr)
-        {
-            temp = head->next;
-            head->next = dummy;
-            dummy = head;
-            head = temp;
-        }
-        return dummy;
-    }
-};
+/**
+ * 头插法
+ * time: O(N)
+ * space: O(1)
+ */
+ class Solution
+ {
+ public:
+     ListNode* reverseList(ListNode* head)
+     {
+         ListNode* tail = nullptr;
+         while(head)
+         {
+             ListNode* next = head->next;
+             head->next = tail;
+             tail = head;
+             head = next;
+         }
+         return tail;
+     }
+ };
 
-/********recursive**********/
+ /**
+  * 头插法递归实现
+  * time: O(N)
+  * space: O(N)*/
 class Solution
 {
 public:

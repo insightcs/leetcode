@@ -11,6 +11,11 @@ typedef struct ListNode
     }
 }ListNode;
 
+/**
+ * HashMap
+ * time: O(N)
+ * space: O(N)
+ */
 class Solution
 {
 public:
@@ -30,6 +35,11 @@ public:
     }
 };
 
+/**
+ * two pointers
+ * time: O(N)
+ * space: O(1)
+ */
 class Solution
 {
 public:

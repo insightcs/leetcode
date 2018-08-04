@@ -14,9 +14,11 @@ typedef struct TreeNode
     }
 }TreeNode;
 
-/* recursive: 二叉树前序遍历
+/**
+ * recursive: 二叉树前序遍历
  * time: O(m)
- * memory: O(m)*/
+ * memory: O(m)
+ */
 class Solution
 {
     TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2)
@@ -36,9 +38,11 @@ class Solution
     }
 };
 
-/* recursive: 二叉树层序遍历
+/**
+ * recursive: 二叉树层序遍历
  * time: O(n)
- * memory: O(n)*/
+ * memory: O(n)
+ */
 class Solution
 {
     TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2)

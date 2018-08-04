@@ -12,9 +12,11 @@ typedef struct TreeNode
     }
 }TreeNode;
 
-/* 深度优先搜索（DFS）
+/**
+ * 深度优先搜索（DFS）
  * time: O(n)
- * memory: O(h) */
+ * memory: O(h)
+ */
 class Solution
 {
 public:

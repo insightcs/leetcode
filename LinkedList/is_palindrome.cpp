@@ -9,11 +9,14 @@ typedef struct ListNode
     }
 }ListNode;
 
-/*思路：
+/**
+ * @思路
  * 1. Halve the list into two lists.
  * 2. Reverse one of the sub lists.
- * 2. Compare two sub lists.*/
-
+ * 2. Compare two sub lists.
+ * time: O(N)
+ * space: O(1)
+ */
 class Solution
 {
 public:
@@ -49,6 +52,7 @@ public:
         return true;
     }
 
+private:
     ListNode* reverse_list(ListNode* head)
     {
         if(!head)

@@ -12,9 +12,10 @@ typedef struct ListNode
     }
 }ListNode;
 
-/*iterative:
+/**iterative:
  * time: O(n1+n2)
- * memory: O(n1)*/
+ * memory: O(n1)
+ */
 class Solution
 {
 public:
