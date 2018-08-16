@@ -4,7 +4,7 @@
 using namespace std;
 
 /** binary search
- * time: O(nlogn)
+ * time: O(nlogn*log(max-min))
  * space: O(1)
  * */
 class Solution
