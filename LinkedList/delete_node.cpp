@@ -14,6 +14,10 @@ class Solution
 public:
     void deleteNode(ListNode* node)
     {
+        if(!node)
+        {
+            return;
+        }
         ListNode* next = node->next;
         *node = *next;
         delete next;
